@@ -34,13 +34,13 @@ app.get('/searchStraat', (req, res) => {
 })
 
 app.post('/searchStraat', (req, res) => {
-    var query = {straat: req.body.straat}
+    var query = {opnameplaats_straat: req.body.straat}
     db.collection('overtredingen').find(query).toArray(function(err, result){
         if(err) return console.log(err)
         if(result == '') 
             res.render("search_not_found.ejs", {})
         else 
-            res.render("search_result.ejs", {overtreding: result})
+        res.render("search_result.ejs", {overtreding: result})
     });
 })
 
@@ -49,7 +49,7 @@ app.get('/searchAantal', (req, res) => {
 })
 
 app.post('/searchAantal', (req, res) => {
-    var query = {aantal: req.body.aantal}
+    var query = {aantal_overtredingen_snelheid: req.body.aantal}
     db.collection('overtredingen').find(query).toArray(function(err, result){
         if(err) return console.log(err)
         if(result == '') 
