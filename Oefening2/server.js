@@ -30,7 +30,7 @@ app.get('/list', (req, res) =>{
 })
 
 app.get('/searchStraat', (req, res) => {
-    res.render('search_straat.ejs', {student: ''})
+    res.render('search_straat.ejs', {})
 })
 
 app.post('/searchStraat', (req, res) => {
