@@ -52,10 +52,15 @@ app.get('/searchAantal', (req, res) => {
 })
 
 app.post('/searchAantal', (req, res) => {
-    var query = {aantal_overtredingen_snelheid: req.body.aantal}
+    var query = {aantal_overtredingen_snelheid: {$gt: Number(req.body.aantal)}}
     db.collection('overtredingen').find(query).toArray(function(err, result){
         if(err) return console.log(err)
-        result.sort()
+        if(result == '') 
+            res.render("search_not_found.ejs", {})
+        else 
+        result.sort(function (a, b) {
+            return (a.datum_vaststelling < b.datum_vaststelling) ? -1 : 1;
+          });
         res.render("search_result_aantal.ejs", {overtreding: result})
     });
 })
