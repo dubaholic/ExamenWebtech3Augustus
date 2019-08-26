@@ -25,9 +25,9 @@ app.get('', (req, res) =>{
 app.get('/list', (req, res) =>{
     db.collection('overtredingen').find().toArray((err, result) => {
         if(err) return console.log(err)
-        result.sort(function (a, b) {
-            return (a.datum_vaststelling < b.datum_vaststelling) ? -1 : 1;
-          });
+          result.sort(function(a, b){
+            return  a.datum_vaststelling <b.datum_vaststelling ? -1 : (a.opnameplaats_straat < b.opnameplaats_straat) ? -1 : (a.opnameplaats_straat > b.opnameplaats_straat) ? 1 : 0;
+        });
         res.render('list.ejs', {overtreding: result})
     })
 })
@@ -43,9 +43,9 @@ app.post('/searchStraat', (req, res) => {
         if(result == '') 
             res.render("search_not_found.ejs", {})
         else 
-        result.sort(function (a, b) {
-            return (a.datum_vaststelling < b.datum_vaststelling) ? -1 : 1;
-          });
+        result.sort(function(a, b){
+            return  a.datum_vaststelling <b.datum_vaststelling ? -1 : (a.opnameplaats_straat < b.opnameplaats_straat) ? -1 : (a.opnameplaats_straat > b.opnameplaats_straat) ? 1 : 0;
+        });
         res.render("search_result.ejs", {overtreding: result})
     });
 })
@@ -61,9 +61,9 @@ app.post('/searchAantal', (req, res) => {
         if(result == '') 
             res.render("search_not_found.ejs", {})
         else 
-        result.sort(function (a, b) {
-            return (a.datum_vaststelling < b.datum_vaststelling) ? -1 : 1;
-          });
+        result.sort(function(a, b){
+            return  a.datum_vaststelling <b.datum_vaststelling ? -1 : (a.opnameplaats_straat < b.opnameplaats_straat) ? -1 : (a.opnameplaats_straat > b.opnameplaats_straat) ? 1 : 0;
+        });
         res.render("search_result_aantal.ejs", {overtreding: result})
     });
 })
