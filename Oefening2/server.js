@@ -25,6 +25,36 @@ app.get('', (req, res) =>{
 app.get('/list', (req, res) =>{
     db.collection('overtredingen').find().toArray((err, result) => {
         if(err) return console.log(err)
-        res.render('list.ejs', {movie: result})
+        res.render('list.ejs', {overtreding: result})
     })
+})
+
+app.get('/searchStraat', (req, res) => {
+    res.render('search_straat.ejs', {student: ''})
+})
+
+app.post('/searchStraat', (req, res) => {
+    var query = {straat: req.body.straat}
+    db.collection('overtredingen').find(query).toArray(function(err, result){
+        if(err) return console.log(err)
+        if(result == '') 
+            res.render("search_not_found.ejs", {})
+        else 
+            res.render("search_result.ejs", {overtreding: result})
+    });
+})
+
+app.get('/searchAantal', (req, res) => {
+    res.render('search_aantal.ejs', {student: ''})
+})
+
+app.post('/searchAantal', (req, res) => {
+    var query = {aantal: req.body.aantal}
+    db.collection('overtredingen').find(query).toArray(function(err, result){
+        if(err) return console.log(err)
+        if(result == '') 
+            res.render("search_not_found.ejs", {})
+        else 
+            res.render("search_result.ejs", {overtreding: result})
+    });
 })

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Products</title>
+  <link rel='stylesheet' href='css/bootstrap.min.css'>
+</head>
+<body>
+  <h2>Result</h2>
+  <br/><br/>
+  <ul class='overtreding'>
+    <% for(var i=0; i < overtreding.length; i++) {%>
+      <li class='overtreding'>
+        <span><b>Datum : </b><%= overtreding[i].datum_vaststelling %></span><br />
+        <span><b>Straat : </b><%= overtreding[i].opnameplaats_straat %></span><br />
+        <span><b>Aantal snelheid : </b><%= overtreding[i].aantal_overtredingen_snelheid %></span><br />
+        <span><b>Aantal roodlicht : </b><%= overtreding[i].aantal_overtredingen_roodlicht %></span><br />
+      </li>
+    <% } %>
+    </ul>
+  
+
+</body>
+</html>
