@@ -25,6 +25,9 @@ app.get('', (req, res) =>{
 app.get('/list', (req, res) =>{
     db.collection('overtredingen').find().toArray((err, result) => {
         if(err) return console.log(err)
+        result.sort(function (a, b) {
+            return (a.datum_vaststelling < b.datum_vaststelling) ? -1 : 1;
+          });
         res.render('list.ejs', {overtreding: result})
     })
 })
