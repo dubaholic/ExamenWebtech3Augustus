@@ -1,5 +1,5 @@
 <div class = 'container'>
-    <h1>Zoek een overtreding op basis van straat</h1>
+    <h1>Zoek een overtreding op basis van aantal snelheidsboetes</h1>
   <!-- 
     Voor het aanroepen van de onSubmit methode uit de ts file
     Altijd gebruik maken van een formgroup voor forms in te lezen in angular
@@ -7,9 +7,9 @@
   -->
     <form (ngSubmit)='onSubmit()'>
      <div class = 'form-group' [formGroup]='searchOvertreding'>
-          <label for = 'straat'>Straat</label>
+          <label for = 'aantal'>Aantal</label>
           <!-- 'date1string' is naam die ook wordt gebruikt in de ts file-->
-          <input type = 'text' formControlName='straat'>
+          <input type = 'text' formControlName='aantal'>
       </div>
        <br />
        <button type='submit' class='btn btn-success'>Search</button>
@@ -27,3 +27,4 @@
      
   
   </div>
+

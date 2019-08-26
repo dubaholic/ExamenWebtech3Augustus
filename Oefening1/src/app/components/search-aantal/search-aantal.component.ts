@@ -4,11 +4,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {OvertredingService} from '../../services/overtreding.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-search-aantal',
+  templateUrl: './search-aantal.component.html',
+  styleUrls: ['./search-aantal.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchAantalComponent implements OnInit {
+
   searchOvertreding: FormGroup;
 
   constructor(private overTredingService : OvertredingService) { }
@@ -16,11 +17,11 @@ export class SearchComponent implements OnInit {
   overtredingenGezocht: Overtreding[] = [];
   allOvertredingen: Overtreding[] = [];
 
-  straat: string;
+  aantal: number;
 
   ngOnInit() {
     this.searchOvertreding = new FormGroup({
-      straat: new FormControl(''),
+      aantal: new FormControl(''),
     });
 
     this.overTredingService.getOvertredingen().subscribe(data => this.allOvertredingen = data);
@@ -29,7 +30,8 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {
-    this.overtredingenGezocht = this.overTredingService.searchOvertredingStraat(this.searchOvertreding.value.straat,
+    this.overtredingenGezocht = this.overTredingService.searchOvertredingAantal(this.searchOvertreding.value.aantal,
          this.allOvertredingen);
   }
+
 }

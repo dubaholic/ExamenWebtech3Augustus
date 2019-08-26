@@ -13,7 +13,8 @@ export class ListComponent implements OnInit {
   constructor(private overtredinsgService: OvertredingService) { }
 
   ngOnInit() {
-    this.overtredinsgService.getOvertredingen().subscribe(data => this.overtredings = data);
+    this.overtredinsgService.getOvertredingen().subscribe(data => this.overtredings = data)
+    
   }
 
 }
