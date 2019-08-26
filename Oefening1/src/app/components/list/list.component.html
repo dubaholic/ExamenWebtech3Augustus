@@ -1,4 +1,7 @@
 <h2>Overtreding List</h2>
-    <ul *ngFor="let overtreding of overtredings">
-     <li>{{overtreding | json}}</li>
-   </ul>
+<ul *ngFor="let overtreding of overtredings">
+  <li>{{overtreding.datum_vaststelling}}</li>
+  <li>{{overtreding.opnameplaats_straat}}</li>
+  <li>{{overtreding.aantal_overtredingen_snelheid}}</li>
+  <li>{{overtreding.aantal_overtredingen_roodlicht}}</li>
+</ul>

@@ -7,7 +7,7 @@
   -->
     <form (ngSubmit)='onSubmit()'>
      <div class = 'form-group' [formGroup]='searchOvertreding'>
-          <label for = 'aantal'>Aantal</label>
+          <label for = 'aantal'>Aantal snelheidsovertredingen</label>
           <!-- 'date1string' is naam die ook wordt gebruikt in de ts file-->
           <input type = 'text' formControlName='aantal'>
       </div>
@@ -17,12 +17,12 @@
     </form>
     <br /><br />
   
-  <h2>Lijst met gezochte overtredingen</h2>
+  <h2>Lijst waarbij aantal snelheidsovertredingen hoger ligt of gelijk is aan input </h2>
       <ul *ngFor="let overtreding of overtredingenGezocht">
-        <li>{{overtreding.datum_vaststelling}}</li>
-        <li>{{overtreding.opnameplaats_straat}}</li>
-        <li>{{overtreding.aantal_overtredingen_snelheid}}</li>
-        <li>{{overtreding.aantal_overtredingen_roodlicht}}</li>
+        <li>Datum: {{overtreding.datum_vaststelling}}</li>
+        <li>Straat: {{overtreding.opnameplaats_straat}}</li>
+        <li>Aantal overtredingen snelheid: {{overtreding.aantal_overtredingen_snelheid}}</li>
+        <li>Aantal overtedingen roodlicht:{{overtreding.aantal_overtredingen_roodlicht}}</li>
      </ul>
      
   
