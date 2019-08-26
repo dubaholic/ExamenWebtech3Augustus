@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.overtredinsgService.getOvertredingen().subscribe(data => this.overtredings = data)
-    
+    this.overtredings.sort();
   }
 
 }

@@ -27,7 +27,7 @@ export class OvertredingService {
            someOvertredingen.push(overtreding);
       } 
   }
-    return someOvertredingen;
+    return someOvertredingen.sort();
     }
 
     searchOvertredingAantal(aantal_gezocht: number, allOvertredingen: Overtreding[]): Overtreding[] {
@@ -39,6 +39,6 @@ export class OvertredingService {
         } 
     }
       
-        return overtredingSnelheid;
+        return overtredingSnelheid.sort();
       }
 }
